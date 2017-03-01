@@ -32,10 +32,11 @@ public class VerCiudad extends AppCompatActivity {
 
         //Aquí va el código para recuperar la informacion completa de la ciudad
         Intent i = getIntent();
-        ciudad = cityDatasource.getCity(i.getStringExtra(i.getStringExtra(MainActivity.NOM_CIUDAD)));
+        String s = i.getStringExtra(MainActivity.NOM_CIUDAD);
+        ciudad = cityDatasource.getCity(s);
 
 
-
+        Log.v("Nombre ciudad",ciudad.getNomCiudad());
         //Este código es para que muestre datos de ejemplo.
         //En realidad debe mostrar los datos de la ciudad consultada
         nombreText.setText(ciudad.getNomCiudad());

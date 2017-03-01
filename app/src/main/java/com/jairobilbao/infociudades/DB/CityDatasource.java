@@ -29,6 +29,7 @@ public class CityDatasource {
 
     public void insertCity(Ciudad ciudad) {
         SQLiteDatabase database = openWriteable();
+
         database.beginTransaction();
         ContentValues contentValues = new ContentValues();
 
@@ -64,7 +65,7 @@ public class CityDatasource {
         Cursor cursor = database.rawQuery(
                 "SELECT * " +
                         " FROM "+SQLHelper.TABLE_NAME +
-                        " WHERE "+SQLHelper.COLUMN_CITY+" = "+nombreCiudad+";",
+                        " WHERE "+SQLHelper.COLUMN_CITY+" = '"+nombreCiudad+"';",
                 null);
         if (cursor.moveToFirst()) {
             ciudad = new Ciudad (
@@ -87,7 +88,7 @@ public class CityDatasource {
                         SQLHelper.COLUMN_PROV,
                         SQLHelper.COLUMN_POBL,
                 },
-                String.format("%s=%s", SQLHelper.COLUMN_CITY,nombreCiudad), null, null, null, null );
+                String.format("%s='%s'", SQLHelper.COLUMN_CITY,nombreCiudad), null, null, null, null );
         if (cursor.moveToFirst()) {
             ciudad = new Ciudad (
                     getIntFromColumnName(cursor, SQLHelper.COLUMN_ID),
