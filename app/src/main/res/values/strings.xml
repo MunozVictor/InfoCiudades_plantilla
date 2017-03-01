@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InfoCiudades</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_insertar_ciudad">InsertarCiudad</string>
+    <string name="title_activity_ver_ciudad">VerCiudad</string>
+</resources>
