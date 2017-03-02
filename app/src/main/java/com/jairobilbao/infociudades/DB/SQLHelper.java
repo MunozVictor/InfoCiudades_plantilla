@@ -16,6 +16,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "CIUDADES";
     static final String DATABASE_NAME ="BBDDCIUDADES";
     static final int DATABASE_VERSION = 1;
+    //se cambia la version al hacer el alter table para que no0s coja los cambios y haga el on upgrade
     static final String CREATE_TABLE_CONTACT =
             "CREATE TABLE "+TABLE_NAME+"( "+
                     COLUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT ,"+
@@ -36,6 +37,7 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //si es version 1 hay que ejecutar el ater table para que los que tengan la version distinta lo hagan
 
     }
 }
